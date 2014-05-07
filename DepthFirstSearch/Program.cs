@@ -25,23 +25,28 @@ namespace DepthFirstSearch
             var stack = new Stack<Node>();
             stack.Push(rootNode);
             rootNode.IsVisited = true;
-            Console.Write(rootNode.Name + " ");
+            ProcessNode(rootNode);
 
             while (stack.Count != 0)
             {
                 Node n = stack.Peek();
                 Node child = n.Children.FirstOrDefault(x => !x.IsVisited);
-                if (child != null)
-                {
-                    child.IsVisited = true;
-                    Console.Write(child.Name + " ");
-                    stack.Push(child);
-                }
-                else
+                if (child == null)
                 {
                     stack.Pop();
                 }
+                else
+                {
+                    child.IsVisited = true;
+                    ProcessNode(child);
+                    stack.Push(child);
+                }
             }
+        }
+
+        private static void ProcessNode(Node node)
+        {
+            Console.Write(node.Name + " ");
         }
     }
 }
