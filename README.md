@@ -1,7 +1,7 @@
 depth-first-search
 ==================
 
-This repo contains an an example of how to traverse the following graph using the Depth First Search.
+This repo contains an example of how to traverse the following graph using the Depth First Search.
 
         G--A--D
         |  |  |
